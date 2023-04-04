@@ -4,9 +4,8 @@ import { getCompany } from '../graphql/queries';
 
 function CompanyDetail() {
   const [company, setCompany] = useState(null);
+    // Make sure this aligns with the resolvers.js file on the back end. It cannot be `id`:
   const { companyId } = useParams();
-
-console.log('CompanyDetail() - id: ', companyId);
 
   useEffect(() => {
     getCompany(companyId).then(setCompany);
@@ -23,6 +22,9 @@ console.log('CompanyDetail() - id: ', companyId);
       </h1>
       <div className='box'>
         {company.description}
+      </div>
+      <div className='jobs'>
+        Jobs at {company.name}
       </div>
     </div>
   );

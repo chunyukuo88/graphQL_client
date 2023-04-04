@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 function JobBoard() {
   const [jobs, setJobs] = useState([]);
 
-  console.log('JobBoard() - jobs', jobs);
   useEffect(() => {
     getJobs()
       .then(setJobs);

@@ -7,14 +7,8 @@ function JobDetail() {
   const [job, setJob] = useState(null);
   const { jobId } = useParams();
 
-    console.log('1: jobId: ', jobId);
-
   useEffect(() => {
-      getJob(jobId).then(job => {
-          console.log('2: ', job);
-          setJob(job);
-          console.log('3: ', job)
-      });
+      getJob(jobId).then(setJob);
   }, [jobId]);
 
   if (!job) {
