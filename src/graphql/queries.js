@@ -29,6 +29,7 @@ export async function getJob(id) {
                 id
                 title
                 company {
+                    id
                     name
                 }
             }

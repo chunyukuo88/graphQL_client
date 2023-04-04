@@ -7,10 +7,14 @@ function JobDetail() {
   const [job, setJob] = useState(null);
   const { jobId } = useParams();
 
-console.log('JobDetail() - jobId', jobId);
+    console.log('1: jobId: ', jobId);
 
   useEffect(() => {
-      getJob(jobId).then(setJob);
+      getJob(jobId).then(job => {
+          console.log('2: ', job);
+          setJob(job);
+          console.log('3: ', job)
+      });
   }, [jobId]);
 
   if (!job) {
@@ -28,7 +32,7 @@ console.log('JobDetail() - jobId', jobId);
         </Link>
       </h2>
       <div className='box'>
-        {job.description}
+        {job.description || 'No description given.'}
       </div>
     </div>
   );

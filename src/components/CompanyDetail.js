@@ -4,12 +4,13 @@ import { getCompany } from '../graphql/queries';
 
 function CompanyDetail() {
   const [company, setCompany] = useState(null);
-  const { id } = useParams();
+  const { companyId } = useParams();
 
-    console.log('CompanyDetail() - id: ', id);
+console.log('CompanyDetail() - id: ', companyId);
+
   useEffect(() => {
-    getCompany(id).then(setCompany);
-  }, [id]);
+    getCompany(companyId).then(setCompany);
+  }, [companyId]);
 
   if (!company) {
     return <p>Loading...</p>
