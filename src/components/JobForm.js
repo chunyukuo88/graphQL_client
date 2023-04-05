@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import {createJob} from "../graphql/queries";
+import {useNavigate} from "react-router";
 
 function JobForm() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // TODO: Add mutation functionality per lecture #24
+    const companyId = 'soP9m8MdKeQX_ZXZOCSaL';
+    const job = await createJob({ title, companyId, description});
+    console.log('the job that was created: ', job);
+    navigate(`jobs/${job.id}`);
   };
 
   return (
