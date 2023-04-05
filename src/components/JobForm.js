@@ -6,6 +6,8 @@ function JobForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // TODO: Add mutation functionality per lecture #24
   };
 
   return (
