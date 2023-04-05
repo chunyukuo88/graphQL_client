@@ -14,7 +14,7 @@ function JobDetail() {
   if (!job) {
       return <p>Loading...</p>;
   }
-    console.dir(job);
+
   return (
     <div>
       <h1 className='title'>

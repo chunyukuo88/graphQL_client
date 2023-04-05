@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getCompany } from '../graphql/queries';
+import JobList from "./JobList";
 
 function CompanyDetail() {
   const [company, setCompany] = useState(null);
     // Make sure this aligns with the resolvers.js file on the back end. It cannot be `id`:
+    // The reason why the resolvers.js uses 'companyId' is because that's what the mock
+    // database uses.
   const { companyId } = useParams();
 
   useEffect(() => {
@@ -26,6 +29,7 @@ function CompanyDetail() {
       <div className='jobs'>
         Jobs at {company.name}
       </div>
+      <JobList jobs={company.jobs} />
     </div>
   );
 }
